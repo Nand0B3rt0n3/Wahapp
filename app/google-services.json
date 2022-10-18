@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "685363093362",
+    "project_id": "wahapp-6a6b2",
+    "storage_bucket": "wahapp-6a6b2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685363093362:android:44caa27367c07b6b1c47eb",
+        "android_client_info": {
+          "package_name": "com.example.wahapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "685363093362-8q3hnfougv4aa8jcog6v5okji6a25als.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAS1bpTYJC88WJpw2nXdmpdCkwu3MEWeck"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "685363093362-8q3hnfougv4aa8jcog6v5okji6a25als.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
