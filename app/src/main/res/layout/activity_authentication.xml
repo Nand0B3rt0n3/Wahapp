@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.AuthenticationActivity">
+
+    <ImageView
+        android:id="@+id/imgBackground"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_whatsapp"
+        android:scaleX="1"
+        android:scaleY="1"
+        android:background="@color/teal_700"
+        android:contentDescription="@string/app_name"
+        />
+
+    <LinearLayout
+        android:id="@+id/firstLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imgBackground"
+        android:orientation="vertical"
+        android:background="@drawable/view_bg"
+        android:layout_marginTop="-35dp"
+        >
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayoutAuthentication"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/view_bg"
+        />
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerAuthentication"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
+            />
+
+
+    </LinearLayout>
+</RelativeLayout>

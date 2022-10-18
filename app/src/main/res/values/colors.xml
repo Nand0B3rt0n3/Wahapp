@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="micolor1">#9370db</color>
+    <color name="micolor2">#000000</color>
+    <color name="micolor3">#b8bfd8</color>
+    <color name="micolor4">#ff0000</color>
+    <color name="micolor5">#696969</color>
+    <color name="micolor6">#ffffff</color>
+    <color name="micolor7">#0000FF</color>
+    <color name="micolor8">#fffafa</color>
+    <color name="micolor9">#de8d00</color>
+    <color name="micolor10">#00008B</color>
+    <color name="micolor11">#ffde40</color>
+    <color name="micolor12">#de8d00</color>
+    <color name="micolor13">#00008B</color>
+    <color name="micolor14">#ee0000</color>
+    <color name="micolor15">#cd0000</color>
+    <color name="micolor16">#7cfc00</color>
+    <color name="micolor17">#b22222</color>
+    <color name="micolor18">#3B5998</color>
+    <color name="micolor19">#8a3ab9</color>
+    <color name="micolor20">#BFBFBF</color>
+</resources>
