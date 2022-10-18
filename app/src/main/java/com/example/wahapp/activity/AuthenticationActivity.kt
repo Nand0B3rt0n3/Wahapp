@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.example.wahapp.Login
 import com.example.wahapp.R
+import com.example.wahapp.SignUp
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -28,11 +30,15 @@ class AuthenticationActivity : AppCompatActivity() {
     }
     class AuthenticationPagerAdapter(fragmentActivity: FragmentActivity):FragmentStateAdapter(fragmentActivity) {
         override fun getItemCount(): Int {
-            TODO("Not yet implemented")
+           return 2
         }
 
         override fun createFragment(position: Int): Fragment {
-            TODO("Not yet implemented")
+            return when (position){
+                0-> Login()
+                1-> SignUp()
+                        else -> Login()
+            }
         }
     }
 }

@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Wahapp</string>
-
+    <string name="enter_email">usuario@correo.es</string>
+    <string name="enter_pass">***********</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="introduce_tu_contase_a">Introduce tu contaseña</string>
+    <string name="login">LOGIN</string>
+    <string name="inicia_sesion_con_google">Inicia sesion con Google</string>
 </resources>

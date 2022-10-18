@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/teal_700"
     tools:context=".activity.AuthenticationActivity">
 
     <ImageView
@@ -12,11 +13,19 @@
         android:layout_height="220dp"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_whatsapp"
-        android:scaleX="1"
-        android:scaleY="1"
+        android:scaleX="0.5"
+        android:scaleY="0.5"
         android:background="@color/teal_700"
         android:contentDescription="@string/app_name"
         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Wahapp"
+        android:textColor="@color/white"
+        android:textScaleX="5" />
 
     <LinearLayout
         android:id="@+id/firstLayout"
@@ -35,12 +44,11 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/view_bg"
         />
+
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPagerAuthentication"
             android:layout_width="match_parent"
             android:layout_height="450dp"
-            />
-
-
+        />
     </LinearLayout>
 </RelativeLayout>
