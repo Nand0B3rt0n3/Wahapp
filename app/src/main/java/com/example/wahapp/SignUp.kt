@@ -49,11 +49,11 @@ class SignUp : Fragment() {
                 }
             else if(TextUtils.isEmpty(password))
                 {
-                    enterPassword.error = "Es necesario introducir una contraseña para registrarte"
+                enterPassword.error = "Es necesario introducir una contraseña para registrarte"
                 }
             else if (password.length<6)
                 {
-                   enterPassword.error = "La contraseña debe contener mas de 6 caracteres, te recomendamos una combinacion de letras, numero y simbolos ;-)"
+                enterPassword.error = "La contraseña debe contener mas de 6 caracteres, te recomendamos una combinacion de letras, numero y simbolos ;-)"
                 }
             else if (password!=confirmPassword)
             {
@@ -64,11 +64,10 @@ class SignUp : Fragment() {
         }
 
 
-
         return view
     }
 
-    private fun createAccount( em : String,pass : String) {
+    private fun createAccount(em : String,pass : String) {
         fauth.createUserWithEmailAndPassword(em,pass).addOnCompleteListener{task->
             if (task.isSuccessful)
             {

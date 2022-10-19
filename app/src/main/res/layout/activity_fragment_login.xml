@@ -9,18 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/w4"
+        android:orientation="vertical"
         >
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="263dp"
-            android:layout_marginTop="20dp">
-
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/login_Email"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:layout_marginHorizontal="20dp"
                 android:hint="@string/enter_email"
                 android:textColorHint="@color/micolor2"
@@ -42,7 +38,6 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/login_Email"
                 android:layout_marginTop="10dp"
                 android:hint="@string/enter_your_password"
                 android:textColorHint="@color/micolor2"
@@ -65,7 +60,6 @@
                 android:id="@+id/btLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/login_Password"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="20dp"
                 android:background="@color/micolor18"
@@ -75,10 +69,9 @@
                 android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btPassword"
+                android:id="@+id/btLoginGoogle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/btLogin"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
                 android:background="@color/micolor6"
@@ -88,23 +81,21 @@
                 android:textStyle="bold"
                 />
             <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:elevation="10dp"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:padding="20dp"
+
                 >
+
                 <ProgressBar
+                    android:id="@+id/LoginProgressBar"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_centerInParent="true"
-                    >
-
-                </ProgressBar>
-
+                    android:visibility="gone"
+                    android:layout_centerInParent="true" />
             </RelativeLayout>
-        </RelativeLayout>
     </LinearLayout>
 
 </ScrollView>

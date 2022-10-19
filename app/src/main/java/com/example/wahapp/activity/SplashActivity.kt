@@ -1,5 +1,6 @@
 package com.example.wahapp.activity
 
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,7 @@ class SplashActivity : AppCompatActivity() {
     private val splashScreenTime = 4000
     private lateinit var splashGif : ImageView
     private lateinit var topAnim   : Animation
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
@@ -22,7 +24,7 @@ class SplashActivity : AppCompatActivity() {
         splashGif.animation= topAnim
         Handler(Looper.getMainLooper()).postDelayed(
             {
-                val intent = Intent(this@SplashActivity,AuthenticationActivity::class.java)
+                val intent = Intent(this,AuthenticationActivity::class.java)
                     startActivity(intent)
                     finish()
             },splashScreenTime.toLong()

@@ -46,8 +46,8 @@ class MainActivity : AppCompatActivity() {
           return when(position)
           {
               0-> Chats()
-              2-> Estados()
-              3-> Llamadas()
+              1-> Estados()
+              2-> Llamadas()
               else -> Chats()
           }
         }
