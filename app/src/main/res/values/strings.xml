@@ -8,4 +8,10 @@
     <string name="login">LOGIN</string>
     <string name="inicia_sesion_con_google">Inicia sesion con Google</string>
     <string name="sign_up">sign up</string>
+    <string name="profile">Perfil</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="about_us">Sobre Waha</string>
+    <string name="cerrar_sesion">Cerrar Sesion</string>
+    <string name="perfil">Perfil</string>
+    <string name="sobre_wahapp">Sobre Wahapp</string>
 </resources>

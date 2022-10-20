@@ -24,7 +24,7 @@ class SplashActivity : AppCompatActivity() {
         splashGif.animation= topAnim
         Handler(Looper.getMainLooper()).postDelayed(
             {
-                val intent = Intent(this,AuthenticationActivity::class.java)
+                val intent = Intent(this@SplashActivity,AuthenticationActivity::class.java)
                     startActivity(intent)
                     finish()
             },splashScreenTime.toLong()
