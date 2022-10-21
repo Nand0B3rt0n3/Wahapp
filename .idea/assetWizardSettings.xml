@@ -18,7 +18,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/email/baseline_email_24.xml" />
+                                      <entry key="url" value="file:/$USER_HOME$/AppData/Local/Android/Sdk/icons/material/materialicons/contacts/baseline_contacts_24.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -28,8 +28,8 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="color" value="5b5b5b" />
-                            <entry key="outputName" value="ic_mail" />
+                            <entry key="color" value="e0e0e0" />
+                            <entry key="outputName" value="ic_baseline_contacts_24" />
                             <entry key="sourceFile" value="D:\CODES\Wahapp\Wahapp" />
                           </map>
                         </option>

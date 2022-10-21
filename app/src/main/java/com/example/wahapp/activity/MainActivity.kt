@@ -15,6 +15,7 @@ import com.example.wahapp.Llamadas
 import com.example.wahapp.Chats
 import com.example.wahapp.R
 import com.example.wahapp.Estados
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var toolbar         : androidx.appcompat.widget.Toolbar
     private lateinit var appPagerAdapter : AppPagerAdapter
     private lateinit var auth            : FirebaseAuth
+    private lateinit var showContacts    : FloatingActionButton
     private val titles = arrayListOf("Chats","Estados","Llamadas")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,14 +37,20 @@ class MainActivity : AppCompatActivity() {
         tabLayout     = findViewById(R.id.tabLayoutMain)
         viewPager2    = findViewById(R.id.viewPager2Main)
         auth          = FirebaseAuth.getInstance()
+        showContacts  = findViewById(R.id.btContacts)
         toolbar.title = "Wahapp"
         setSupportActionBar(toolbar)
-        appPagerAdapter = AppPagerAdapter(this)
+        appPagerAdapter    = AppPagerAdapter(this)
         viewPager2.adapter = appPagerAdapter
         TabLayoutMediator(tabLayout,viewPager2){
             tab,position->
             tab.text = titles[position]
         }.attach()
+        showContacts.setOnClickListener{
+            val intent = Intent(this,MenuActivity::class.java)
+            intent.putExtra("OptionName","contacts")
+            startActivity(intent)
+        }
 
     }
     class AppPagerAdapter(fragmentActivity: FragmentActivity):FragmentStateAdapter(fragmentActivity) {

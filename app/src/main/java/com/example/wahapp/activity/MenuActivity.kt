@@ -36,6 +36,10 @@ class MenuActivity : AppCompatActivity() {
                     toolbarMenu.title = "Sobre Waha"
 
                 }
+                "contacts" ->{
+                    supportFragmentManager.beginTransaction().replace(  R.id.frameLayout, Contacts()).commit()
+                    toolbarMenu.title = "Contactos"
+                }
             }
         }
     }

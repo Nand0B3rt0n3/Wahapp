@@ -23,4 +23,9 @@
     <string name="guardar_cambios">Guardar cambios</string>
     <string name="cambiar_correo_electronico">Cambiar correo electronico</string>
     <string name="nickname">Nickname</string>
+    <string name="contactos">Contactos</string>
+    <string name="menuprincipal">menuPrincipal</string>
+    <string name="nombre_del_usuario">Nombre del Usuario</string>
+    <string name="correo_electronico">Correo Electronico</string>
+    <string name="estado_del_usuario">Estado del Usuario</string>
 </resources>
