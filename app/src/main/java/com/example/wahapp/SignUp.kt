@@ -76,6 +76,8 @@ class SignUp : Fragment() {
                 val obj = mutableMapOf<String,String>()
                 obj["userEmail"] = em
                 obj["userPassword"] = pass
+                obj["userStatus"]=""
+                obj["userName"]=""
                 db.set(obj).addOnSuccessListener {
                     Log.d("onSuccess","User Created Sucessfully")
                     progressBar.visibility = View.GONE

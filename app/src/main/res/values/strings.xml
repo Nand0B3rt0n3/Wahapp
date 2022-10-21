@@ -14,4 +14,13 @@
     <string name="cerrar_sesion">Cerrar Sesion</string>
     <string name="perfil">Perfil</string>
     <string name="sobre_wahapp">Sobre Wahapp</string>
+    <string name="profileimage">ProfileImage</string>
+    <string name="introduce_tu_nombre">Introduce tu Nombre</string>
+    <string name="email">Email</string>
+    <string name="cambia_tu_estado">Cambia tu Estado:</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="editar">Editar</string>
+    <string name="guardar_cambios">Guardar cambios</string>
+    <string name="cambiar_correo_electronico">Cambiar correo electronico</string>
+    <string name="nickname">Nickname</string>
 </resources>
