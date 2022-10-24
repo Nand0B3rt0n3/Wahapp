@@ -16,6 +16,7 @@
         >
 
         <TextView
+            android:id="@+id/txtMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
@@ -26,18 +27,20 @@
             android:text="@string/mensajes_recibidos"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="normal" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/mensajes_recibidos"
             android:textStyle="normal"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:padding="5dp"
-            android:layout_margin="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
             />
+            <TextView
+                android:id="@+id/txtTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mensajes_recibidos"
+                android:textStyle="normal"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                />
     </LinearLayout>
 </RelativeLayout>

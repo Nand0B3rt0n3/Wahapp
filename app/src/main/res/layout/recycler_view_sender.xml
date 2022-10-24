@@ -14,6 +14,7 @@
         tools:ignore="UselessParent"
         >
         <TextView
+            android:id="@+id/txtMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/mensajes_enviados"
@@ -24,6 +25,7 @@
             android:layout_margin="5dp"
             />
         <TextView
+            android:id="@+id/txtTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/mensajes_enviados"
