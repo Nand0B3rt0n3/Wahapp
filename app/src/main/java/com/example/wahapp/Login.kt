@@ -20,7 +20,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
-
+import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class Login : Fragment() {
@@ -95,10 +96,35 @@ class Login : Fragment() {
             .requestIdToken("Google ID")
             .requestEmail()
             .build()
+        mGoogleSignInClient = context.let {
+            GoogleSignIn.getClient(it!!, googleSignInOptions)
+        }
+        resultLaunch.launch(Intent(mGoogleSignInClient.signInIntent))
     }
 
     private fun firebaseAuthWithGoogle(idToken: String?) {
-        TODO("Not yet implemented")
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
+        FirebaseAuth.getInstance().signInWithCredential(credential)
+            .addOnCompleteListener {
+                val acct = GoogleSignIn.getLastSignedInAccount(requireContext())
+                if (acct != null) {
+                    val personName = acct.displayName!!
+                    val personEmail = acct.email!!
+                    val personPhoto = acct.photoUrl!!
+                    val objLogin = mutableMapOf<String, String>()
+                    objLogin["userName"] = personName
+                    objLogin["userEmail"] = personEmail
+                    objLogin["userProfile"] = personPhoto.toString()
+
+                    val userId = FirebaseAuth.getInstance().currentUser?.uid
+                    FirebaseFirestore.getInstance().collection("users").document(userId.toString())
+                        .set(objLogin).addOnSuccessListener {
+                            Log.d("onSuccess", "Successfully Google Login")
+                        }
+
+                }
+            }
+
     }
 }
 

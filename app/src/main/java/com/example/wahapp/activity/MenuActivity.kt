@@ -2,26 +2,30 @@ package com.example.wahapp.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.WindowManager
 import android.widget.FrameLayout
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import com.example.wahapp.*
 
-class MenuActivity : AppCompatActivity() {
+class MenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
     private lateinit var toolbarMenu  : androidx.appcompat.widget.Toolbar
     private lateinit var frameLayout  : FrameLayout
-    private lateinit var optionValue: String
+    private lateinit var optionValue  : String
+    private lateinit var queryTerm    : String
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         toolbarMenu = findViewById(R.id.toolbarMenu)
         frameLayout = findViewById(R.id.frameLayout)
-        if(intent!=null)
-        {
+        if(intent!=null) {
             optionValue = intent.getStringExtra("OptionName").toString()
-            when(optionValue)
-            {
+            when(optionValue) {
                 "profile" ->{
                     supportFragmentManager.beginTransaction().replace(R.id.frameLayout, Profile()).commit()
                     toolbarMenu.title = "Perfil"
@@ -39,8 +43,46 @@ class MenuActivity : AppCompatActivity() {
                 "contacts" ->{
                     supportFragmentManager.beginTransaction().replace(  R.id.frameLayout, Contacts()).commit()
                     toolbarMenu.title = "Contactos"
+                    //setSupportActionBar(toolbarMenu)
+
                 }
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.search,menu)
+        val searchView = menu?.findItem(R.id.search)?.actionView as SearchView
+        searchView.isSubmitButtonEnabled = true
+        searchView.setOnQueryTextListener(this)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        if(query!=null)
+        {
+            queryTerm = query
+            if(queryTerm.isNotEmpty())
+            {
+                searchUsers()
+            }
+        }
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        if(newText!=null)
+        {
+            queryTerm = newText
+            if(queryTerm.isNotEmpty())
+            {
+                searchUsers()
+            }
+        }
+        return true
+    }
+
+    private fun searchUsers() {
+        Toast.makeText(this,"Busqueda de Contactos",Toast.LENGTH_LONG).show()
     }
 }
