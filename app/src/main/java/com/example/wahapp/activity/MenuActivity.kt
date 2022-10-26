@@ -2,16 +2,19 @@ package com.example.wahapp.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.WindowManager
 import android.widget.FrameLayout
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.widget.SearchView
 import com.example.wahapp.*
+import com.google.firebase.firestore.FirebaseFirestore
 
 class MenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
-    private lateinit var toolbarMenu  : androidx.appcompat.widget.Toolbar
+    private lateinit var toolbarMenu  : Toolbar
     private lateinit var frameLayout  : FrameLayout
     private lateinit var optionValue  : String
     private lateinit var queryTerm    : String
@@ -43,7 +46,7 @@ class MenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                 "contacts" ->{
                     supportFragmentManager.beginTransaction().replace(  R.id.frameLayout, Contacts()).commit()
                     toolbarMenu.title = "Contactos"
-                    //setSupportActionBar(toolbarMenu)
+                    setSupportActionBar(toolbarMenu)
 
                 }
             }
@@ -83,6 +86,14 @@ class MenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     }
 
     private fun searchUsers() {
-        Toast.makeText(this,"Busqueda de Contactos",Toast.LENGTH_LONG).show()
+        FirebaseFirestore.getInstance()
+            .collection("user")
+            .whereEqualTo("useName",queryTerm).addSnapshotListener { snapshot, exception ->
+                if (exception!=null)
+                {
+                    Log.e("onError","Some error occured")
+                }
+            }
+        Toast.makeText(this,"Contacto $queryTerm",Toast.LENGTH_LONG).show()
     }
 }
