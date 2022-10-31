@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +20,7 @@ class Contacts : Fragment() {
     private lateinit var contactsAdapter: ContactsAdapter
     private lateinit var fstore : FirebaseFirestore
     private lateinit var auth : FirebaseAuth
-
+    private lateinit var toolbar: Toolbar
     private val contactInfo = arrayListOf<User>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,32 +29,26 @@ class Contacts : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_contactos, container, false)
         contactsRecyclerView = view.findViewById(R.id.contactsRecyclerView)
-        contactsLayoutManager= LinearLayoutManager(context as Activity)
+        contactsLayoutManager = LinearLayoutManager(context as Activity)
         auth = FirebaseAuth.getInstance()
         fstore = FirebaseFirestore.getInstance()
         fstore.collection("users").get().addOnSuccessListener {
-            if(!it.isEmpty)
-            {
-                val listContact = it.documents
-                for(i in listContact)
-                {
-                    if(i.id==auth.currentUser?.uid){
-                        Log.d("onFound","This is a Account")
-                    }
-                    else
-                    {
-                        val contact = User(i.getString("userName").toString(),
-                            i.getString("userStatus").toString(),
-                            i.getString("userEmail").toString(),
-                            i.getString("userProfilePhoto").toString())
+            if (!it.isEmpty) {
+                contactInfo.clear()
+                val list = it.documents
+                for (doc in list) {
+                    val obj = User(
 
-                        contactInfo.add(contact)
-                        contactsAdapter = ContactsAdapter(context as Activity,contactInfo)
-                        contactsRecyclerView.adapter = contactsAdapter
-                        contactsRecyclerView.layoutManager = contactsLayoutManager
-                        contactsRecyclerView.addItemDecoration(DividerItemDecoration(contactsRecyclerView.context,
-                            (contactsLayoutManager as LinearLayoutManager).orientation))
-                    }
+                        doc.getString("userName").toString(),
+                        doc.getString("userStatus").toString(),
+                        doc.id,
+                        doc.getString("userProfilePhoto").toString()
+                    )
+                    contactInfo.add(obj)
+                    contactsAdapter = ContactsAdapter(context as Activity, contactInfo)
+                    contactsRecyclerView.adapter = contactsAdapter
+                    contactsRecyclerView.layoutManager = contactsLayoutManager
+
                 }
             }
         }

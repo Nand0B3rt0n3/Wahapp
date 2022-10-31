@@ -84,7 +84,7 @@ class Login : Fragment() {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(em, pass)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(context, "Inicio de sesion correcto", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "LoginSuccessfully", Toast.LENGTH_SHORT).show()
                     onStart()
                 }
 

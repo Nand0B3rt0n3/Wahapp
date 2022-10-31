@@ -1,24 +1,24 @@
 package com.example.wahapp
 
 import android.content.Context
-import android.text.Layout
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.coroutines.NonDisposableHandle.parent
 
 
-class MessageAdapter(val context : Context, val messageList : ArrayList<MessageModal>):
+
+class MessageAdapter(val context : Context, private val messageList : ArrayList<MessageModal>):
 RecyclerView.Adapter<MessageAdapter.MessageViewHolder>(){
     private val left = 0
     private val rigth = 1
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): MessageAdapter.MessageViewHolder {
+    ): MessageViewHolder {
         return if(viewType==rigth)
         {
             val messageView = LayoutInflater.from(parent.context).inflate(R.layout.recycler_view_sender,parent,false)
@@ -42,7 +42,7 @@ RecyclerView.Adapter<MessageAdapter.MessageViewHolder>(){
         }
     }
 
-    override fun onBindViewHolder(holder: MessageAdapter.MessageViewHolder, position:Int) {
+    override fun onBindViewHolder(holder: MessageViewHolder, position:Int) {
         val list = messageList[position]
         holder.message.text = list.message
         holder.time.text = list.timeStamp

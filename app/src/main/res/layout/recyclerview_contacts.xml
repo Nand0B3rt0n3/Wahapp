@@ -6,6 +6,7 @@
     xmlns:card_view="http://schemas.android.com/tools"
     app:cardBackgroundColor="#0000"
     android:padding="2dp"
+
     card_view:cardElevation="0dp">
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgUserProfileImage"
