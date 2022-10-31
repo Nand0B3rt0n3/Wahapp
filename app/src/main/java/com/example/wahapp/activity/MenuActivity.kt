@@ -34,6 +34,7 @@ class MenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         toolbarMenu = findViewById(R.id.toolbarMenu)
         frameLayout = findViewById(R.id.frameLayout)
+
         if(intent != null) {
             optionValue = intent.getStringExtra("OptionName").toString()
             when(optionValue) {
@@ -56,8 +57,8 @@ class MenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                 }
                 "contacts" ->{
                     frameLayout.visibility = View.VISIBLE
-                    searchRecyclerView = findViewById(R.id.RecyclerViewSearch)
                     supportFragmentManager.beginTransaction().replace(  R.id.frameLayout, Contacts()).commit()
+                    searchRecyclerView = findViewById(R.id.RecyclerViewSearch)
                     searchLayoutManager = LinearLayoutManager(this)
                     searchRecyclerView.visibility = View.VISIBLE
                     toolbarMenu.title = "Contactos"
@@ -104,7 +105,9 @@ class MenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
     private fun searchUsers() {
         register = FirebaseFirestore.getInstance()
             .collection("users")
-            .orderBy("userName").startAt(queryTerm).limit(5)
+            .orderBy("userName")
+            .startAt(queryTerm)
+            .limit(5)
             .addSnapshotListener{ snapshot,exception->
                 if(exception != null) {
                     Log.e("onError", "Some Error 0ccured")
@@ -140,7 +143,6 @@ class MenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
     override fun onDestroy() {
             register?.remove()
-
             super.onDestroy()
         }
     }

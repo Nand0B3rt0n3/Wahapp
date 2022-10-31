@@ -72,6 +72,7 @@ class AuthenticationActivity : AppCompatActivity(), FirebaseAuth.AuthStateListen
     }
 
 
+    @SuppressLint("SuspiciousIndentation")
     private fun startMainActivity() {
     val intent = Intent(this@AuthenticationActivity,MainActivity::class.java)
         startActivity(intent)

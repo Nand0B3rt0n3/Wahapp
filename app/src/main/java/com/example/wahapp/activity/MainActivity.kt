@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         viewPager2    = findViewById(R.id.viewPager2Main)
         auth          = FirebaseAuth.getInstance()
         showContacts  = findViewById(R.id.btContacts)
-        toolbar.title = "Wahapp"
+        toolbar.title = "Waha"
         setSupportActionBar(toolbar)
         appPagerAdapter    = AppPagerAdapter(this)
         viewPager2.adapter = appPagerAdapter
@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
                 auth.signOut()
                 val intent = Intent(this,AuthenticationActivity::class.java)
                 startActivity(intent)
-               // finish()
+                finish()
             }
             R.id.about -> {
                 val intent = Intent(this,MenuActivity::class.java)
