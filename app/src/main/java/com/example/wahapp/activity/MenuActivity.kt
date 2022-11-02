@@ -34,6 +34,7 @@ class MenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         toolbarMenu = findViewById(R.id.toolbarMenu)
         frameLayout = findViewById(R.id.frameLayout)
+        frameLayout.visibility = View.GONE
 
         if(intent != null) {
             optionValue = intent.getStringExtra("OptionName").toString()
@@ -56,15 +57,17 @@ class MenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
                 }
                 "contacts" ->{
-                    frameLayout.visibility = View.VISIBLE
-                    supportFragmentManager.beginTransaction().replace(  R.id.frameLayout, Contacts()).commit()
+                    //frameLayout.visibility = View.VISIBLE
+                    //supportFragmentManager.beginTransaction().replace(  R.id.frameLayout, Contacts()).commit()
                     searchRecyclerView = findViewById(R.id.RecyclerViewSearch)
                     searchLayoutManager = LinearLayoutManager(this)
                     searchRecyclerView.visibility = View.VISIBLE
                     toolbarMenu.title = "Contactos"
                         setSupportActionBar(toolbarMenu)
-
-
+                    searchRecyclerView.addItemDecoration(
+                        DividerItemDecoration(
+                            searchRecyclerView.context,
+                            (searchLayoutManager as LinearLayoutManager).orientation))
                 }
             }
         }
@@ -106,12 +109,12 @@ class MenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
         register = FirebaseFirestore.getInstance()
             .collection("users")
             .orderBy("userName")
-            .startAt(queryTerm)
-            .limit(5)
-            .addSnapshotListener{ snapshot,exception->
-                if(exception != null) {
+            .startAt(queryTerm).addSnapshotListener{ snapshot,exception->
+                if(exception != null)
+                {
                     Log.e("onError", "Some Error 0ccured")
-                } else {
+                } else
+                {
                     if (snapshot?.isEmpty!!)
                     {
                         searchInfo.clear()
@@ -120,10 +123,10 @@ class MenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                         for (doc in searchList)
                         {
                             val obj = User(
-
+                                doc.id,
                                 doc.getString("userName").toString(),
                                 doc.getString("userStatus").toString(),
-                                doc.id,
+
                                 doc.getString("userProfilePhoto").toString()
                             )
                             searchInfo.add(obj)
@@ -133,8 +136,7 @@ class MenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
                             searchRecyclerView.addItemDecoration(
                                 DividerItemDecoration(
                                     searchRecyclerView.context,
-                                    (searchLayoutManager as LinearLayoutManager).orientation)
-                            )
+                                    (searchLayoutManager as LinearLayoutManager).orientation))
                         }
                     }
                 }
