@@ -42,7 +42,8 @@ class Contacts : Fragment() {
                         doc.getString("userName").toString(),
                         doc.getString("userStatus").toString(),
                         doc.id,
-                        doc.getString("userProfilePhoto").toString()
+                        doc.getString("userProfilePhoto").toString(),
+                        doc.getString("prorileUid").toString()
                     )
                     contactInfo.add(obj)
                     contactsAdapter = ContactsAdapter(context as Activity, contactInfo)

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.wahapp.*
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 
@@ -57,8 +58,8 @@ class MenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
                 }
                 "contacts" ->{
-                    //frameLayout.visibility = View.VISIBLE
-                    //supportFragmentManager.beginTransaction().replace(  R.id.frameLayout, Contacts()).commit()
+                    frameLayout.visibility = View.VISIBLE
+                    supportFragmentManager.beginTransaction().replace(  R.id.frameLayout, Contacts()).commit()
                     searchRecyclerView = findViewById(R.id.RecyclerViewSearch)
                     searchLayoutManager = LinearLayoutManager(this)
                     searchRecyclerView.visibility = View.VISIBLE
@@ -122,21 +123,24 @@ class MenuActivity : AppCompatActivity(), SearchView.OnQueryTextListener {
 
                         for (doc in searchList)
                         {
-                            val obj = User(
-                                doc.id,
-                                doc.getString("userName").toString(),
-                                doc.getString("userStatus").toString(),
+                            if (FirebaseAuth.getInstance().currentUser!!.uid == doc.id)
+                            {
+                                Log.d("onSuccess","Usuario usando la app")
+                            }
+                            else {
+                                val obj = User(
+                                    doc.id,
+                                    doc.getString("userName").toString(),
+                                    doc.getString("userStatus").toString(),
+                                    doc.getString("userProfilePhoto").toString(),
+                                    doc.getString("userEmail").toString()
+                                )
+                                searchInfo.add(obj)
+                                searchAdapter = SearchAdapter(this, searchInfo)
+                                searchRecyclerView.adapter = searchAdapter
+                                searchRecyclerView.layoutManager = searchLayoutManager
 
-                                doc.getString("userProfilePhoto").toString()
-                            )
-                            searchInfo.add(obj)
-                            searchAdapter = SearchAdapter(this, searchInfo)
-                            searchRecyclerView.adapter = searchAdapter
-                            searchRecyclerView.layoutManager = searchLayoutManager
-                            searchRecyclerView.addItemDecoration(
-                                DividerItemDecoration(
-                                    searchRecyclerView.context,
-                                    (searchLayoutManager as LinearLayoutManager).orientation))
+                            }
                         }
                     }
                 }
