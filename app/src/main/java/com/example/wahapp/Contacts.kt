@@ -42,7 +42,7 @@ class Contacts : Fragment() {
                         doc.getString("userName").toString(),
                         doc.getString("userStatus").toString(),
                         doc.id,
-                        doc.getString("userProfilePhoto").toString(),
+                        doc.getString("userPhoto").toString(),
                         doc.getString("prorileUid").toString()
                     )
                     contactInfo.add(obj)

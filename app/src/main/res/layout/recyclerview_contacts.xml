@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="330dp"
+    android:layout_width="300dp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardBackgroundColor="#0000"
@@ -11,7 +11,7 @@
     app:cardCornerRadius="0sp">
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/infoUserLayout"
+        android:id="@+id/frameLayout"
         android:layout_width="85dp"
         android:layout_height="80dp"
         android:gravity="center"
@@ -31,12 +31,11 @@
             app:cardElevation="20dp"
             app:civ_border_color="@color/teal_200"
             app:civ_border_width="2dp"
-            app:layout_constraintBottom_toBottomOf="@id/userLayout"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:id="@+id/userPhotoLayout"
+            android:id="@+id/frameLayoutInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="130dp"
@@ -47,25 +46,18 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/userDataLayout"
+        android:id="@+id/infoUserLayout"
         android:layout_width="158dp"
-        android:layout_height="73dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintEnd_toStartOf="@+id/addButtonLayout"
-        app:layout_constraintStart_toEndOf="@+id/infoUserLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.598"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        tools:ignore="MissingConstraints,NotSibling">
 
-        <LinearLayout
-            android:id="@+id/userLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="130dp"
-            android:orientation="vertical"
-            app:layout_constraintLeft_toRightOf="@id/imgUserProfileImage"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtName"
@@ -93,40 +85,24 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/addButtonLayout"
-        android:layout_width="82dp"
-        android:layout_height="78dp"
+        android:id="@+id/addUserLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="73dp"
         android:layout_marginTop="4dp"
         android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf=""
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="248dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="@+id/frameLayout"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:id="@+id/buttonLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="130dp"
-            android:orientation="vertical"
-            android:layout_constraintStart_toStartOf="@id/userData"
-            app:layout_constraintLeft_toRightOf="@id/imgUserProfileImage"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btAgreeContact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:gravity="center"
+        <ImageButton
+            android:id="@+id/btAgree"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             android:src="@drawable/send"
-
-            android:padding="2dp"
-            android:textSize="16sp"
-            android:textStyle="normal"
-            />
+            android:background="#0000"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

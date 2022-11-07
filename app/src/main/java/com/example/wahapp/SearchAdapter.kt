@@ -20,7 +20,7 @@ class SearchAdapter (val context: Context, private val searchList: ArrayList<Use
         // val email --->
         val status: TextView = view.findViewById(R.id.txtStatus)
         val image : ImageView = view.findViewById(R.id.imgUserProfileImage)
-        val addFriend : Button = view.findViewById(R.id.btAgreeContact)
+        val addFriend : Button = view.findViewById(R.id.btAgree)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
